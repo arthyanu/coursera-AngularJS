@@ -1,0 +1,17 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<title>AngularJS Dependency Injection</title>  
+		<script src = "angular.min.js"></script>
+		<script src = "Ex9-DependencyJS.js"></script>
+	</head>  
+	<body>  
+		<h2>AngularJS Sample Application</h2>  
+        
+		<div ng-app = "m1" ng-controller = "CalcController">  
+			<p>Enter a number: <input type = "number" ng-model = "number" /></p>  
+			<input type = "submit" ng-click = "square()" value = "x^2">  
+			<p>Result: {{result}}</p>  
+		</div>    
+    </body>  
+</html>  

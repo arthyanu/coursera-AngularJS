@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			My First AngularJS Program
+		</title>
+		<script src = "angular.min.js"></script>
+	</head>
+	<body ng-app = "">
+		<h1> Expression </h1>
+		
+		<div>
+			Addition : {{10 + 20}}
+		</div>
+		
+		<div>
+			Addition using AJS : {{10 + 20}}
+		</div>
+		
+		<div ng-init = "colour = 'blue'">
+			<div style = "background-color: {{colour}}">
+			India is my country
+			</div>
+		</div>
+		
+		<div ng-init = "fname = 'Arthy'; sname = 'R'">
+			My name is {{sname + " . " + fname}}
+		</div>
+		
+		<div ng-init = "length = '23'; breadth = '34'">
+			Area of the Rectangle = {{length * breadth}}
+		</div>
+		
+		<div ng-init = "marks = [100, 90, 98, 78, 97]">
+			The mark of 2nd student is {{marks[1]}}
+		</div>
+		
+		<div ng-init = "student = {rollno:100, name:'Arthy'}">
+			Roll Number = {{student.rollno}} <br/>
+			Name = {{student.name}}
+		</div>
+		
+		<div ng-init = "student = {rollno:100, name:'Arthy', marks: [100,90,99,98]}">
+			Roll Number = {{student.rollno}} <br/>
+			Name = {{student.name}} <br/>
+			Mark1 = {{student.marks[0]}} <br/>
+			Mark2 = {{student.marks[1]}} <br/>
+			Mark3 = {{student.marks[2]}} <br/>
+			Mark4 = {{student.marks[3]}} <br/>			
+		</div>
+		
+		<div ng-init = "student = [{rollno:100, name:'Arthy', marks: [100,90,99,98]}, {rollno:101, name:'ArthyR', marks: [100,90,99,98]}]">
+			Roll Number = {{student[0].rollno}} <br/>
+			Name = {{student[0].name}} <br/>
+			Roll Number = {{student[1].rollno}} <br/>
+			Name = {{student[1].name}} <br/>
+		</div>
+	</body>
+</html>
