@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Directives in AngularJS</title>
+    <script src = "angular.min.js"></script>
+    <script src = "Ex10-DirectiveJS.js"></script>
+  </head>
+  <body ng-app = "" ng-init = "foods = ['Idly', 'Dosa', 'Chappathi', 'Poori', 'Parota'];
+                        foodDetail = [{name: 'Idly', price: 12, quantity: 2},
+                        {name: 'Dosa', price: 25, quantity: 1}, {name: 'Chappathi', price: 18, quantity: 2},
+                        {name: 'Parota', price: 20, quantity: 2}, {name: 'Poori', price: 15, quantity: 2}];
+                        ">
+
+    <div>
+      <ul>
+        <li ng-repeat = "food in foods">
+          {{food}}
+        </li>
+      </ul>
+    </div>
+
+    <table border = '1' align = 'center'>
+      <tr>
+        <td>Name of the Food Item</td>
+        <td>Price (in Rs.)</td>
+        <td>Quantity</td>
+      </tr>
+      <tr ng-repeat = "fd in foodDetail">
+        <td>{{fd.name}}</td>
+        <td>{{fd.price}}</td>
+        <td>{{fd.quantity}}</td>
+      </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <form>
+      <div>
+        Your Order Please : <input type = 'text' ng-model = 'order'> <br/> <br/>
+        You have ordered <span ng-bind = "order"></span>
+      </div>
+    </form>
+  </body>
+</html>
