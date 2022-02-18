@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Directives in AngularJS</title>
+    <link rel = "stylesheet" href = "Ex11-FiltersCSS.css">
+    <script src = "angular.min.js"></script>
+  </head>
+  <body ng-app = "" ng-init = "names = [{name: 'Arthy', score: 85},
+  {name: 'Harish', score: 99},
+  {name: 'Anu', score: 87},
+  {name: 'Raja', score: 90},
+  {name: 'Kalai', score: 93}, {name: 'Ramesh', score: 89}, {name: 'Babu', score: 95}]">
+
+    <center><h1>Filters in AngularJS</h1></center>
+    <div>
+      <center><h4>CASE FILTERS</h4></center>
+      Enter your name in Upper Case: <input type = "text" ng-model = "uname" onkeyup="this.value = this.value.toUpperCase()">
+      <br/><br/>
+      Your name in Lower Case => {{uname | lowercase}}
+      <br/>
+      <br/>
+      Enter your name in Lower Case: <input type = "text" ng-model = "lname" onkeyup="this.value = this.value.toLowerCase()">
+      <br/><br/>
+      Your name in Lower Case => {{lname | uppercase}}
+      <br/>
+
+    </div>
+
+    <hr/>
+
+    <div>
+      <center><h4>CURRENCY FILTERS</h4></center>
+      Enter the price amount: <input type = "number" ng-model = "price">
+      <br/><br/>
+      Price Amount => {{price | currency}}
+      <br/>
+      <br/>
+      Price Amount (in Rs.) => {{price | currency: ' Rs.'}}
+      <br/>
+
+    </div>
+
+    <hr/>
+
+    <div>
+      <center><h4>NUMBER FILTERS</h4></center>
+      Enter your CGPA : <input type = "text" ng-model = "cgpa">
+      <br/><br/>
+      CGPA => {{cgpa}}
+      <br/>
+      <br/>
+      CGPA (in 2 Precision)=> {{cgpa | number:2}}
+      <br/>
+
+    </div>
+    <hr/>
+
+    <div>
+      <center><h4>DATE FILTERS</h4></center>
+      Enter your Date of Birth : <input type = "date" ng-model = "dob">
+      <br/><br/>
+      Date of Birth => {{dob | date: 'yyyy-MM-dd'}}
+      <br/>
+      <br/>
+      Date of Birth => {{dob | date: 'dd-MM-yyyy'}}
+      <br/>
+      <br/>
+      Date of Birth => {{dob | date: 'fullDate'}}
+      <br/>
+      <br/>
+      Time => {{dob | date: 'shortTime'}}
+      <br/>
+
+    </div>
+    <hr/>
+
+    <div>
+      <center><h4>ORDER BY FILTERS</h4></center>
+      Sort the Names
+      <br/>
+      <br/>
+      <div class = 'or'>
+      <table class="nameScore">
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+        <tr ng-repeat="name1 in names | orderBy: 'score'">
+          <td>{{name1.name}}</td>
+          <td>{{name1.score}}</td>
+        </tr>
+      </table>
+
+      <table class="nameScore">
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+        <tr ng-repeat="name1 in names | orderBy: '-score'">
+          <td>{{name1.name}}</td>
+          <td>{{name1.score}}</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div>
+      <center><h4>FILTER FILTERS</h4></center>
+      <ul>
+        <li ng-repeat = "name1 in names | filter: 'h'">
+          {{name1}}
+        </li>
+      </ul>
+    </div>
+
+    <hr/>
+
+    <div>
+      <center><h4>FILTER FILTERS - SEARCH</h4></center>
+      Search for Score : <input type = "text" ng-model = 'search'>
+      <table border = '1'>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+        <tr ng-repeat="name1 in names | filter: search">
+          <td>{{name1.name}}</td>
+          <td>{{name1.score}}</td>
+        </tr>
+      </table>
+
+    </div>
+    <hr/>
+    <div>
+      <center><h4>LIMITTO FILTERS</h4></center>
+      <ul>
+        <li ng-repeat = "name1 in names | limitTo: 2:4">
+          {{name1}}
+        </li>
+      </ul>
+    </div>
+    <hr/>
+    <div>
+      <center><h4>JSON FILTERS</h4></center>
+      <pre>{{names | json: 4}}</pre>
+    </div>
+  </body>
+</html>

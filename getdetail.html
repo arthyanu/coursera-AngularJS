@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+AngularJs ng-click Event Function Example
+
+</title>
+
+<script src="angular.min.js"></script>
+
+<script type="text/javascript">
+
+var app = angular.module('ngclickApp', []);
+
+app.controller('ngclickCtrl', function ($scope) {
+
+$scope.clkcount = 0;
+
+$scope.getdetails = function () {
+
+$scope.clkcount = $scope.clkcount + 1;
+
+}
+
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div ng-app="ngclickApp" ng-controller="ngclickCtrl">
+
+<h2>AngularJs ng-click Event Function Example</h2>
+
+<input type="button" style="cursor:pointer" value="Click Here" ng-click ="getdetails()" /><br /><br />
+
+<span style="color:Red">Number of Times you Clicked: {{clkcount}}</span>
+
+</div>
+
+</body>
+
+</html>

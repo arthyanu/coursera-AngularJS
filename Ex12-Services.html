@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Directives in AngularJS</title>
+    <link rel = "stylesheet" href = "Ex12-ServicesCSS.css">
+    <script src = "angular.min.js"></script>
+    <script src = "Ex12-ServicesJS.js"></script>
+  </head>
+  <body ng-app = "myApp">
+
+    <center><h1>Services in AngularJS</h1></center>
+
+    <hr/>
+    <div ng-controller = "timeoutSer">
+      <center><h3>$timeout Service</h3></center>
+      <div>5 seconds delay message : <b>{{test1}}</b></div>
+    </div>
+
+    <hr/>
+
+    <div ng-controller = "intervalSer">
+      <center><h3>$interval Service</h3></center>
+      <div>Time : <b>{{ptime}}</b></div>
+    </div>
+
+    <hr/>
+
+    <div ng-controller="locationSer">
+
+      <center><h3>$location Service</h3></center>
+
+      <p>Url of Webpage: {{weburl}}</p>
+
+      <p>Host of Webpage: {{urlhost}}</p>
+
+      <p>Port of Webpage: {{urlport}}</p>
+
+      <p>Protocol of Webpage: {{urlprotocol}}</p>
+    </div>
+
+    <hr/>
+
+    <div ng-controller="httpSer">
+
+      <p>Hi, Guest</p>
+
+      <h1>{{myWelcome}}</h1>
+
+      <p>StatusCode: {{statusval}}</p>
+
+      <p>Status: {{statustext}}</p>
+
+      <p>Response Headers: {{headers}}</p>
+
+      </div>
+  </body>
+</html>

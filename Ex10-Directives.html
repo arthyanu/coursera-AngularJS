@@ -2,15 +2,19 @@
 <html>
   <head>
     <title>Directives in AngularJS</title>
+    <link rel = "stylesheet" href = "Ex10-DirectivesCSS.css">
     <script src = "angular.min.js"></script>
-    <script src = "Ex10-DirectiveJS.js"></script>
+    <script src = "Ex10-DirectivesJS.js"></script>
   </head>
-  <body ng-app = "" ng-init = "foods = ['Idly', 'Dosa', 'Chappathi', 'Poori', 'Parota'];
+  <body ng-app = "myDirectives" ng-controller = "myOrder" ng-init = "foods = ['Idly', 'Dosa', 'Chappathi', 'Poori', 'Parota'];
                         foodDetail = [{name: 'Idly', price: 12, quantity: 2},
                         {name: 'Dosa', price: 25, quantity: 1}, {name: 'Chappathi', price: 18, quantity: 2},
                         {name: 'Parota', price: 20, quantity: 2}, {name: 'Poori', price: 15, quantity: 2}];
                         ">
-
+    <h1>Harish Restaurant</h1>
+    <div id = "bf">
+      Breakfast
+    </div>
     <div>
       <ul>
         <li ng-repeat = "food in foods">
@@ -36,9 +40,39 @@
     <br/>
 
     <form>
-      <div>
-        Your Order Please : <input type = 'text' ng-model = 'order'> <br/> <br/>
+      <div class = "msg1">
+        Your Order Please : <input type = 'text' ng-model = 'order' ng-blur = "blurred()"
+                    ng-focus = "msg = 'Welcome to Harish Restuarant.... Your order Please'"> <br/> <br/>
+        <div class = "msg2">{{msg}}</div>
+        <br/>
         You have ordered <span ng-bind = "order"></span>
+
+
+      </div>
+      <br/>
+      <div>
+        <input type = "checkbox" name = "c1" ng-model = "breakfast"> Breakfast Combo<br/>
+        <div ng-show = "breakfast">
+          <img src = "breakfastCombo.jpg" width = 200 height = 200>
+        </div>
+
+        <input type = "checkbox" name = "c2" ng-model = "lunch"> Lunch Combo<br/>
+
+        <div ng-show = "lunch">
+          Veg Lunch Combo
+          <br/><img src = "vegLunch.jpg" width = 200 height = 200>
+          <br/>Non-Veg Lunch Combo
+          <br/><img src = "nonvegLunch.jpg" width = 200 height = 200>
+        </div>
+
+        <input type = "checkbox" name = "c3" ng-model = "dinner"> Dinner Combo<br/>
+        <div ng-show = "dinner">
+          <img src = "dinnerCombo.jpg" width = 200 height = 200>
+        </div>
+      </div>
+      <div>
+        <input type = "button" value = "Click to Pay" ng-click = "payNow()">
+
       </div>
     </form>
   </body>
