@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Register Here
+    </title>
+    <link rel = "stylesheet" href = "Ex13-FormValidationCSS.css">
+    <script src = "angular.min.js"></script>
+    <script src = "Ex13-FormValidationJS.js"></script>
+  </head>
+  <body ng-app = "myModule" ng-controller = "myCheck">
+      <h1>REGISTRATION</h1>
+    <form name = "reg">
+      <table>
+        <tr>
+          <td>
+            First Name
+          </td>
+          <td>
+            <input type = "text" name = "firname" ng-model = "fname" ng-minlength = 5 ng-maxlength = 10 placeholder = "Enter your First Name" required>
+            <span class = "error" ng-show="reg.firname.$error.required">First Name Required!</span>
+            <span ng-show = "reg.firname.$touched && reg.firname.$error.maxlength"> Maximum 10 Characters </span>
+            <span ng-show = "reg.firname.$touched && reg.firname.$error.minlength"> First Name should have atleast 5 characters </span>
+            <spam></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Last Name
+          </td>
+          <td>
+            <input type = "text" name = "lastname" ng-model = "lname" placeholder = "Enter your Last Name" required>
+            <span class = "error" ng-show="reg.lastname.$error.required">Last Name Required!</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Email ID
+          </td>
+          <td>
+            <input type = "email" name = "emailID" ng-model = "email" placeholder = "sample@gmail.com" required>
+            <span class = "error" ng-show="reg.emailID.$error.required">Email ID Required!</span>
+            <span class = "error" ng-show="reg.emailID.$error.email">Invalied Email ID!</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Date of Birth
+          </td>
+          <td>
+            <input type = "date" name = "dob1" ng-model = "dob" required>
+            <span class = "error" ng-show="reg.dob1.$error.required">Date of Birth Required!</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Password
+          </td>
+          <td>
+            <input type = "password" name = "pass" ng-model = "pwd" placeholder = "Enter your password" ng-pattern="/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/" required>
+            <span class = "error" ng-show="reg.pass.$error.required">Password Required!</span>
+            <span ng-show = "reg.pass.$touched && reg.pass.$invalid">
+              Password must contain one special character, uppercase, number and (minimum 8 and maximum 20) characters.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Confirm Password
+          </td>
+          <td>
+            <input type = "password" name = "cpass" ng-model = "cpwd" placeholder = "Enter your password again" required>
+            <span class = "error" ng-show="reg.cpass.$error.required">Confirm Password Required!</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type = "Submit" class = "b1" name = "but1" ng-disabled = "reg.$invalid" value = "Click Here to Register" ng-click = "check()">
+          </td>
+          <td>
+            <input type = "Reset" name = "but2" value = "Reset">
+          </td>
+        </tr>
+      </table>
+
+    </form>
+  </body>
+</html>

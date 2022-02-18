@@ -2,10 +2,10 @@ var app = angular.module("myModule", []);
 
 app.controller("myCheck", function($scope){
   $scope.check = function () {
-  isMatch = angular.equals($scope.pass, $scope.cpass);
+  isMatch = angular.equals($scope.pwd, $scope.cpwd);
   if(isMatch)
-    $scope.msg = "Password Mached";
+    alert("Thank you for your Registration");
   else
-  $scope.msg = "Password MisMached";
+    alert("MisMatch Password");
   }
 });
